@@ -1,0 +1,52 @@
+#jm_stack_box 
+{
+	position: absolute; right: 180px; top: 25px;
+	width: 260px; 
+	z-index: 100;
+
+}
+
+#jm_stack_box .jm_message
+{
+	background-color: #8B8970;
+	/*background: rgba(0, 0, 0, .7);*/
+	padding: 10px; margin: 0 0 15px 0;
+
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #fff;
+	cursor: pointer;
+
+	/*border-radius: 13px;
+	-o-border-radius: 13px;
+	-moz-border-radius: 13px;
+	-webkit-border-radius: 13px;*/
+	
+}
+
+#jm_stack_box .jm_message h3
+{
+	font-size: 15px; font-weight: normal;
+	padding: 0; margin: 0 0 5px 0;
+}
+
+
+#jm_stack_box .jm_message_error
+{
+	background-color: #B22222;
+	
+}
+
+#jm_stack_box .jm_message_warning
+{
+	background-color: #8470FF;
+	
+}
+
+#jm_stack_box .jm_message_success
+{
+	background-color: #408da0;
+
+	
+}
+

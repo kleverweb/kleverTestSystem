@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quiz>
+  <language>BLR</language>
+  <discipline>Назва дысцыпліны</discipline>
+  <quiztitle>Теставанне. Баранавіцкі дзяржаўны універсітэт</quiztitle>
+  <subject>Тэма тэставання</subject>
+  <quizetype>Кантрольнае теставанне 
+    <timelimit>35</timelimit>
+    <quizlimit>10</quizlimit>
+    <showrightanswers>true</showrightanswers>
+    <showrightanswersattheend>false</showrightanswersattheend>
+  </quizetype>
+  <copyright>
+    <date>
+      <day>1</day>
+      <month>12</month>
+      <year>2012</year>
+    </date>
+    <quizauthor>
+      <degree>преподаватель</degree>
+      <firstname>Иванов</firstname>
+      <surname>Иван</surname>
+      <patronymic>Иванович</patronymic>
+    </quizauthor>
+  </copyright>
+  <qtopic><name><![CDATA[Раздел 1. система физической культуры]]></name>
+      <questions> 
+          <question>
+              <category>single</category>
+              <qtype>Выбор одного ответа</qtype>
+              <weight>1</weight>
+              <title>Выберите правильный ответ:</title>
+              <questionbody><![CDATA[ 1 Часть общей культуры общества, <br>направленная <br>&permil;<br>на укрепление и повышение уровня здоровья, развитие физических и духовных способностей человека и эффективное использование их в жизнедеятельности &mdash; это:]]></questionbody>
+              <answers>
+                <answer type="false" ><name><![CDATA[оздоровительная физическая культура]]></name></answer>
+                <answer type="true"><name><![CDATA[физическая культура]]></name></answer>
+                <answer type="false"><name><![CDATA[физическое воспитание]]></name></answer>
+                <answer type="false"><name><![CDATA[спорт]]></name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>filled</category>
+              <inputsize>5</inputsize>
+              <qtype>Ввод значения</qtype>
+              <weight>5</weight>
+              <title>Введите правильный ответ:</title>
+              <questionbody> 2 Какое слово говорят, встречаясь?</questionbody>
+              <answers>  
+                <answer type="true"><name>hello|привет|ку</name></answer>
+              </answers>
+          </question>
+          <question>
+            <category>multiply</category>
+            <qtype>Выбор нескольких ответов</qtype>
+            <weight>8</weight>
+            <title>Выберите один правильный ответ:</title>
+            <questionbody> 3 Абярыце правільны адказ(можа быць некалькі правільных):</questionbody>
+              <answers>
+                <answer type="true"><name>Правильно1</name></answer>
+                <answer type="true"><name>Правильно2</name></answer>
+                <answer type="true"><name>Правильно3</name></answer>
+                <answer type="false"><name>Не Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно2</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>comparison</category>
+              <qtype>Сопоставление</qtype>
+              <weight>5</weight>
+              <title>Выберите соответствующее утверждению продолжение из списка:</title>
+              <questionbody> 4 Выберите соответствующее утверждению продолжение из списка:</questionbody>
+              <answers>
+                <answer result="1+1=&amp;copy;" ><name><![CDATA[<br>2&copy;]]></name></answer>
+                <answer result="2+2=" ><name>4</name></answer>
+                <answer result="3+3=" ><name>6</name></answer>
+                <answer result="4+4=" ><name>8</name></answer>
+                <answer result="5+5=" ><name>10</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>sort</category>
+              <qtype>Сортировка</qtype>
+              <weight>10</weight>
+              <title>Упорядочите утверждения:</title>
+              <questionbody> 5 Упорядочите утверждения:</questionbody>
+              <answers>
+                <answer type="true" order="1" ><name>позиция 1</name></answer>
+                <answer type="true" order="2" ><name>позиция 2</name></answer>
+                <answer type="true" order="3" ><name>позиция 3</name></answer>
+                <answer type="true" order="4" ><name>позиция 4</name></answer>
+                <answer type="true" order="5" ><name>позиция 5</name></answer>
+              </answers>
+          </question>
+       </questions>
+  </qtopic>
+  <qtopic><name>Тема 2 </name>
+      <questions> 
+          <question>
+              <category>single</category>
+              <qtype>Выбор одного ответа</qtype>
+              <weight>1</weight>
+              <title>Выберите правильный ответ:</title>
+              <questionbody> 6 Абярыце правільны адказ:</questionbody>
+              <answers>
+                <answer type="true" ><name>Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно4</name></answer>
+                <answer type="false"><name>Не Правильно3</name></answer>
+                <answer type="false"><name>Не Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно2</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>filled</category>
+              <inputsize>5</inputsize>
+              <qtype>Ввод значения</qtype>
+              <weight>5</weight>
+              <title>Введите правильный ответ:</title>
+              <questionbody> 7 Сколько будет 2 + 2 = ?:</questionbody>
+              <answers>  
+                <answer type="true"><name>4</name></answer>
+              </answers>
+          </question>
+          <question>
+            <category>multiply</category>
+            <qtype>Выбор нескольких ответов</qtype>
+            <weight>8</weight>
+            <title>Выберите один правильный ответ:</title>
+            <questionbody>8 Абярыце правільны адказ(можа быць некалькі правільных):</questionbody>
+              <answers>
+                <answer type="true"><name>Правильно1</name></answer>
+                <answer type="true"><name>Правильно2</name></answer>
+                <answer type="true"><name>Правильно3</name></answer>
+                <answer type="false"><name>Не Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно2</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>comparison</category>
+              <qtype>Сопоставление</qtype>
+              <weight>5</weight>
+              <title>Выберите соответствующее утверждению продолжение из списка:</title>
+              <questionbody> 9 Выберите соответствующее утверждению продолжение из списка:</questionbody>
+              <answers>
+                <answer result="1+1=&amp;copy;" ><name><![CDATA[<br>2&copy;]]></name></answer>
+                <answer result="2+2=" ><name>4</name></answer>
+                <answer result="3+3=" ><name>6</name></answer>
+                <answer result="4+4=" ><name>8</name></answer>
+                <answer result="5+5=" ><name>10</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>sort</category>
+              <qtype>Сортировка</qtype>
+              <weight>10</weight>
+              <title>Упорядочите утверждения:</title>
+              <questionbody> 10 Упорядочите утверждения:</questionbody>
+              <answers>
+                <answer type="true" order="1" ><name>позиция 1</name></answer>
+                <answer type="true" order="2" ><name>позиция 2</name></answer>
+                <answer type="true" order="3" ><name>позиция 3</name></answer>
+                <answer type="true" order="4" ><name>позиция 4</name></answer>
+                <answer type="true" order="5" ><name>позиция 5</name></answer>
+              </answers>
+          </question>
+       </questions>
+  </qtopic>
+  </quiz>

@@ -1,0 +1,17 @@
+<?php
+$TreningTest 	= 	'Трэніравальнае тэставанне';
+$ControlTest 	= 	'Кантрольнае тэставанне';
+$TestSubject 	= 	'Тэма тэста';
+$Today			= 	'Сёння:'; 
+$RemTime		= 	'Застаўшыся час:';
+$RemTimeTrening = 	'';
+$RemTimeEnd		= 	'Час скончыўся!';
+$CancelTest		= 	'Спыніць тэставанне';
+$AbortTest		= 	'Датэрмінова завяршыць';
+$TypeQuestion	= 	'Тып пытання';
+$copyrightName	= 	'Цэнтр Дыстанцыйнага Навучання БарДУ';
+$startbtntitle	= 	'Нацiснеце сюды, каб пачать тэст';
+$startbtn		= 	'Пачать тэст';
+$QuestionLimit	= 	'Усяго пытанняў';
+$Remain			=	'Засталося'
+?>

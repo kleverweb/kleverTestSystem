@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quiz>
+  <language>BLR</language>
+  <discipline>Назва дысцыпліны</discipline>
+  <quiztitle>Теставанне. Баранавіцкі дзяржаўны універсітэт</quiztitle>
+  <subject>Тэма тэставання</subject>
+  <quizetype>Кантрольнае теставанне 
+    <timelimit>35</timelimit>
+    <quizlimit>10</quizlimit>
+    <showrightanswers>true</showrightanswers>
+  </quizetype>
+  <copyright>
+    <date>
+      <day>1</day>
+      <month>12</month>
+      <year>2012</year>
+    </date>
+    <quizauthor>
+      <degree>преподаватель</degree>
+      <firstname>Иванов</firstname>
+      <surname>Иван</surname>
+      <patronymic>Иванович</patronymic>
+    </quizauthor>
+  </copyright>
+  <qtopic><name>Тема 1 основные понятия</name>
+      <questions> 
+          <question>
+              <category>filled</category>
+              <inputsize>5</inputsize>
+              <qtype>Ввод значения</qtype>
+              <weight>5</weight>
+              <title>Введите правильный ответ:</title>
+              <questionbody> 1 Запішыце слова, якое патрэбна тут напісаць:</questionbody>
+              <answers>  
+                <answer type="true"><name>hello|привет|ку</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>single</category>
+              <qtype>Выбор одного ответа</qtype>
+              <weight>1</weight>
+              <title>Выберите правильный ответ:</title>
+              <questionbody> 2 Абярыце правільны адказ:</questionbody>
+              <answers>
+                <answer type="true" ><name>Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно4</name></answer>
+                <answer type="false"><name>Не Правильно3</name></answer>
+                <answer type="false"><name>Не Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно2</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>single</category>
+              <qtype>Выбор одного ответа</qtype>
+              <weight>1</weight>
+              <title>Выберите правильный ответ:</title>
+              <questionbody> 2 Абярыце правільны адказ:</questionbody>
+              <answers>
+                <answer type="true" ><name>Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно4</name></answer>
+                <answer type="false"><name>Не Правильно3</name></answer>
+                <answer type="false"><name>Не Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно2</name></answer>
+              </answers>
+          </question>
+      </questions>
+  </qtopic>
+  
+  </quiz>

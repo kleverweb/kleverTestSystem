@@ -1,0 +1,164 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+padding:0;
+margin:0;
+}
+
+html, body{
+height:100%;
+width:100%;
+background-color:#B5B5B5;
+font-family: Tahoma,Arial;
+}
+a{
+color:#191970;
+text-decoration: none;
+}
+a:hover{
+color:#047fac;
+text-decoration: underline;
+}
+
+#contaner{
+width:1000px;
+margin:0 auto;
+background-color:#FFF;
+min-height:100%;
+position:relative;
+}
+
+*html #contaner{
+height:100%;
+}
+
+#header{
+text-align:center;
+}
+#logo{
+	position: absolute;
+	padding-left: 10px;
+	margin: 10px;
+}
+#nameoftest{
+	position: absolute;
+	padding-left: 17%;
+	margin: 10px;
+	font-family: Tahoma,Arial;
+	font-size: 18pt;
+
+}
+
+#typeoftest{
+	position: relative;
+	top:100px;
+	position: relative;
+	text-align: left;
+	margin: 5px;
+	font-family: Tahoma,Arial;
+	font-size: 12pt;
+	
+}
+#curdate{
+	position: relative;
+	text-align: right;
+	font-family: Tahoma,Arial;
+	font-size: 12pt;
+}
+#testdata{
+	background-color: #DCDCDC;
+	position: relative;
+	font-family: Tahoma,Arial;
+	top:100px;
+}
+#testtime{
+	position: relative;
+	text-align: right;
+	font-family: Tahoma,Arial;
+}
+#testsubject{
+	position: relative;
+	text-align: left;
+	margin-left: 10px;
+	font-family: Tahoma,Arial;
+	font-size: 12pt;
+	padding-bottom: 5px;
+}
+#testfunctions{
+	position: relative;
+	right: 10px;
+	text-align: right;
+	margin: 5px;
+	font-family: Tahoma,Arial;
+	font-size: 10pt;
+	top:100px;
+}
+#typeofquestion{
+	position: relative;
+	top:100px;
+	font-family: Tahoma,Arial;
+	text-align: left;
+	margin: 5px;
+	background-color: #F5F5F5;
+}
+#topicname{
+	text-transform: uppercase;
+	font-size: 14pt;
+	padding-bottom: 15px;
+}
+#content{
+	position: relative;
+	top:100px;
+	margin: 10px;
+	font-family: Tahoma,Arial;
+}
+#clickme{
+	position: fixed;
+	bottom:80px;
+	/*margin: 10px;*/
+	font-family: Tahoma,Arial;
+}
+#empty{
+height:50px;
+}
+
+#footer{
+color: #FFF;
+background-color:#363636;
+min-height:60px;
+margin:-50px auto 0;
+width:1000px;
+position:relative;
+}
+
+#footer-text{
+text-align: center;
+position: relative;
+top: -17px;
+}
+.quiz-btn{
+	position: relative;
+	left:450px;
+	bottom: 40px;
+}
+#res{
+	max-width: 963px;
+	max-height: 600px;
+	overflow: auto;
+	
+}
+#start-quiz{
+	padding-top: 150px;
+	font-family: Tahoma,Arial;
+	font-size: 18pt;
+}
+#start-btn{margin-top: 150px;font-size: 18pt;}
+
+#hardfinish{
+color: #334c82;
+}
+#hardfinish:hover{
+	text-decoration: underline;
+	color: #5373bc;
+	cursor: pointer;
+}

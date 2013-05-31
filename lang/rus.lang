@@ -1,0 +1,12 @@
+<?php
+$TreningTest 	= 'Тренировочное тестирование';
+$ControlTest 	= 'Контрольное тестирование';
+$Today			= 'Сегодня:'; 
+$TestSubject 	= 'Тема теста';
+$RemTime		= 'Оставшееся время:';
+$RemTimeTrening = '';
+$CancelTest		= 'Прервать тестирование';
+$AbortTest		= 'Досрочно завершить';
+$TypeQuestion	= 'Тип вопроса';
+$copyrightName	= 'Центр Дистанционного Обучения БарГУ';
+?>
