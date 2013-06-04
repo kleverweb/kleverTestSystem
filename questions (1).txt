@@ -1,0 +1,134 @@
+	вопрос такой, где на компе в ЦДО сервак, 
+	и где файлы теста куда скидывать, пробовал cdo-test папку смотреть ничего, так что с тестам тестара у меня косяки, 
+	а на ноуте посмотреть не могу, т.к. в ремонте, и вообще скоро на продажу, что его. и протестить тяжко,
+	вопрос с формулами, кажись решил, буду подключать просто html page in modal window, с библиотекой jsMath разобрался все подключает, 
+	и показывает в ввиде формулы а не ввиде картинки так что это гуд)) ббывают только косяки буду тестить на разныз компах, 
+	вот только остается висеть вопрос с результами, вот 
+	это конечно не точно, но кажись с выводм в конце ответов косяк, или показалось, вот и почему-то нужно 2 раза жать что бы перейти на след вопрос, вот это все что я успел найти вот
+
+====================================================================
+
+
+cdo-test это виртуальный хост апача на моём комрютере, там я разрабатывал тестирование. Наверное я не понял твой вопрос с сервером.
+Но из этой папки должен запускаться тестер, когда вводишь этот адрес http://cdo-test
+Может апач не стартует.
+
+Да я тоже замечал этот косяк, что нужно было 2 раза нажимать, а у тебя разве не последняя версия, кажется я это уже исправлял.
+
+Да, и сбрось мне свой xml,  я попробую на месте глянуть что там не то с результатом
+
+
+
+====================================================================
+
+Вот что апач мне дает
+Name Error: The domain name does not exist.
+
+
+А вот по адресу, localhost, открывает, но только тот тест не работает и я не знаю что делать. 
+Проверял через консоль apache running, а может быть там из-за прокси?? просто у меня на ноуте выбивало ошибку
+ когда на локальный серв заходил с проксями.
+ по поводу тестов прикрепляю 2 картинки верстка слетает, если шо я могу подправить, свой файлик скинул, только он у меня в тестере не пошел странно,
+ до этого все работало, и теги в xml те самые кажись, хз так что тзатестить сегодн не вышло это.
+
+Еще хотел спросить, тут в общем вопрос поднялся о том что бы сохранять каждый тест в отдельную папку, что бы потом можно было
+ бы преподу самому его отредактировать и у меня проблема которую не знаю как решить, как со стороны клиента,
+ а т.е. с помощью js или jquery открыть диалог сохранить и получить путь папки, 
+да блин хотя бы открыть диалог, ничего не нашел, если выбирать через input type=file то путь прописывать как C:\fakepath\.... вот кажись все.
+	
+=======================================
+Переустанови апач=) и настрой виртуальный хост по новому
+
+если не знаешь как, то для убунты это делается в 2 этапа
+
+1. В настройках апача надо прописать название хоста и разрешить доступ в папку, где будет находиться твои файлы приложения
+
+вот здесь почитай
+https://help.ubuntu.com/12.04/serverguide/httpd.html
+
+вот пример моего файла, но это из винды
+
+#
+# Virtual Hosts
+#
+# If you want to maintain multiple domains/hostnames on your
+# machine you can setup VirtualHost containers for them. Most configurations
+# use only name-based virtual hosts so the server doesn't need to worry about
+# IP addresses. This is indicated by the asterisks in the directives below.
+#
+# Please see the documentation at 
+# <URL:http://httpd.apache.org/docs/2.2/vhosts/>
+# for further details before you try to setup virtual hosts.
+#
+# You may use the command line option '-S' to verify your virtual host
+# configuration.
+
+#
+# Use name-based virtual hosting.
+#
+NameVirtualHost *:80
+
+#
+# VirtualHost example:
+# Almost any Apache directive may go into a VirtualHost container.
+# The first VirtualHost section is used for all requests that do not
+# match a ServerName or ServerAlias in any <VirtualHost> block.
+#
+
+<VirtualHost *:80>
+    DocumentRoot "d:/projects/xampp/htdocs"
+    ServerName localhost
+    <Directory "d:/projects/xampp/htdocs">
+        Allow from all
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    DocumentRoot "d:/projects/xampp/htdocs/mikalai.webdev/httpdocs"
+    ServerName gk.mo.webdev.humeintermedia.net
+    <Directory "d:/projects/xampp/htdocs/mikalai.webdev/httpdocs">       
+        Allow from all
+    </Directory>
+</VirtualHost>
+
+============== конец файла=================
+
+2. прописать хосты
+ 
+обязательно прописать хосты в ./etc/hosts
+
+вот мой пример(тоже винда)
+
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+127.0.0.1       localhost
+::1             localhost
+
+127.0.0.1 		mikalai.webdev
+127.0.0.1		gk.mo.webdev.humeintermedia.net
+
+.........................................конец файла.......................................................
+
+если я плохо обьясняю, то загугли эту тему, очень много разных примеров, главное не забудь права на папку прописать, а то в нете не всегда про
+это написанно
+Или можешь не загоняться, а просто создай папку в var/www/your_folder_name   и из этой папки запускай=)) Все должно работать, если совсем не
+получится, тоже не переживай сделаем конференцию, только надо договориться.  Я раньше проснусь и пока ты на работе через тимвьювер помогу настроить
+
+
