@@ -1,46 +1,74 @@
-﻿<?php 
-//$start_time = microtime(true);//для теста затрачиваемого времени на обработку скрипта
+<?php 
+// толькі дзеля тэтавай інфармацыі
+// $start_time = microtime(true);//для теста затрачиваемого времени на обработку скрипта
+// далучэнне канфігурацыйных файлаў
+// Моўны файл пакуль не працу, патрэбна зрабіць
 include 'config.inc';
-include 'lang/'.$language;
+include 'lang/'.$language;//Моўны файл
 
-$file = $xmlFile;//указан в config.inc
-      if (file_exists($file))
-       {
+//пазначаны ў config.inc
+$file = $xmlFile;
+
+// праверка на істотнасць файлу
+      if (file_exists($file))  {
           $xml = simplexml_load_file($file);
        } 
-       else {
+       else {           
+           // файл не існуе, перайсці на на старонку памылкі
           header("Location: error.php?error_num=001");
           exit;
-            }
+      }
+        
+          // Атрыманне стартавай інфармацыіі з xml файлу
+          // Для даведкі як што працуе, глядзі дакументацыю па "xpath" на "http://php.net"
+          $title                        = $xml->xpath("quiztitle");// Назва тэставання
+          $disciplinename        = $xml->xpath("discipline");// Назва дысцыпліны
+          $subject                  = $xml->xpath("subject");// Тэма тэставання
+          $quizlimit                  = $xml->xpath("quizetype/quizlimit");// Колькасць пытанняў у тэсце
+          $quizqnum               = $xml->xpath("qtopic/questions/question");//Змяшчае ўсю інфу пра тэст
+          // count($quizqnum) агульная колькасць пытанняў xml файлу
+          $showrightanswers   = $xml->xpath("//showrightanswers");// флаг аб паказе адказаў паля кожнага пытання
+          $ranswersattheend   = $xml->xpath("//showrightanswersattheend");// флаг аб паказе адказаў у канты тэста
 
-          $title              = $xml->xpath("quiztitle");//Название тестирования
-          $disciplinename     = $xml->xpath("discipline");//название дисциплины
-          $subject            = $xml->xpath("subject");//тема тестирования
-          $quizlimit          = $xml->xpath("quizetype/quizlimit");//число вопросов в тесте
-          $quizqnum           = $xml->xpath("qtopic/questions/question");//содержит всю информацию о вопросах. count($quizqnum) число все вопросов.
-          $showrightanswers   = $xml->xpath("//showrightanswers");
-          $ranswersattheend   = $xml->xpath("//showrightanswersattheend");
-
-
-          if($quizlimit[0] > count($quizqnum))
-            {
+          // Праверка на дакладнасць колькасці пытанняў
+          // Агульная колькасць пытанняў павінна  быць
+          if( $quizlimit[0] > count($quizqnum) ) {
               header("Location: error.php?error_num=002");
               exit;
             }
-          //получить количество всех тем topiccount , это и будет размерность глобального массива для выборки
-          $topiccount = $xml->xpath("qtopic");//количество всех тем в тесте
-          //получение данных по тестированию.
-
-           for ($i=0; $i <count($topiccount); $i++)
-              { 
-                $question = $i+1;//номер вопроса
-                $arrTopic[$i] = count($xml->xpath("qtopic[".$question."]/questions/question"));//количество вопросов в теме
-                $arrPercents[$i] = $arrTopic[$i]*100/count($xml->xpath("qtopic/questions/question"));//получаем процентное ссотношение вопросов из темы на все тестирование
-                $arrNumQuestionInTopic[$i] = ceil($arrPercents[$i]*$quizlimit[0]/100);//получаем число вопросов из темы на всё тестирование
+            
+          // Атрымаць колькасць усіх тым "topiccount", гэта і будзе памернасць глабальнага масіва для выбаркі
+          
+            // Колькасць усіх тым у тэсце
+          $topiccount = $xml->xpath("qtopic");
+         
+          // атрыманне дадзеных па тэставанні.
+           for( $i=0; $i <count($topiccount); $i++ ) { 
+                $question = $i+1;// нумар пытання
+                $arrTopic[$i] = count($xml->xpath("qtopic[".$question."]/questions/question"));// колькасць пытанняў у тэме
+                $arrPercents[$i] = $arrTopic[$i]*100/count($xml->xpath("qtopic/questions/question"));// атрымліваем адсоткавыя суадносіны пытанняў з тэмы на ўсе тэставанне
+                $arrNumQuestionInTopic[$i] = ceil($arrPercents[$i]*$quizlimit[0]/100);// атрымліваем колькасць пытанняў з тэмы на ўсе тэставанне
                 $k[$i] = count($xml->xpath("qtopic[".$question."]/questions/question/preceding-sibling::*"))+1;
-                
               }
 
+   // =============== пачатак ========= Алгарытм перамешвання пытанняў  =============================
+              // Лянота каментаваць =))) 
+
+//                  .---.
+//                 /     \
+//                | -  - |
+//               (|  ' '  |)
+//                | (_) | 
+//               `//=\\'
+//                 (((()))
+//                  )))((
+//                  (())))
+//                   ))((
+//                   (()
+//                     ))
+//                    (
+              
+              
   $flagBegin = 1;
   $flagEnd = $arrTopic[0];
 
@@ -82,51 +110,26 @@ $file = $xmlFile;//указан в config.inc
       }
       
       if($mlen != $quizlimit[0])
-        {//обрезка лишнего в выборке
+        {// выдаллене смецця з выбаркі
           $saber = $quizlimit[0] - $mlen;
           array_splice($rpattern, $saber);  
-
         }
-
-  /*echo "<pre>";
-  var_dump($rpattern);
-  echo "</pre>";*/
-
-//$len = count($xml->xpath("qtopic/questions/question"));//количество всех вопросов в тестировании
-//Создание массива равного количеству вопросов, массива с флагами об отвеченых вопросах и массива случайных чисел
-//$pattern          = array();
-//$answers          = array();
-//$randompattern    = array();
-
-
-/*for ($i = 0; $i < $len; $i ++)
-  {// Массив - источник чисел
-     $pattern[] = $i+1;
-     //$answers[$i+1] = "noanswered";
-  }*/
-
-//Перемешивание и разрушение первоначального массива
-/*for ($i = 0; $i < $len; $i++)
-  { 
-    $n = rand(0, count($pattern) - 1);
-    $randompattern[] = $pattern[$n];
-    unset($pattern[$n]);
-    $pattern = array_values($pattern);
-  }
-*/
-
-
-  /////////////////////////////////////////
+    
+// Робім масіў у які по змозчанні запісваем адказы на пытанне
   for ($i=0; $i < count($rpattern); $i++) { 
     $answers[$rpattern[$i]] = 0;
     $results[] = "no";
   }
-
-function get_random_array($first, $last)
-  {//Возвращает перемешанный массив чисел от $first+1 до $last, размером $last-1;
-    
+// =============== канец ========= Алгарытм перамешвання пытанняў  =============================
+ 
+ /*
+  *  get_random_array
+  * Вяртае перамяшаны масіў лікаў ад $ first +1 да $ last, памерам $ last-1;
+  * 
+  */ 
+function get_random_array($first, $last) {    
     for ($i = $first; $i < $last; $i ++)
-      {// Массив - источник чисел
+      {// крыніца
          $source_array[] = $i+1;
       }
     for ($i = $first; $i < $last; $i++)
@@ -139,9 +142,13 @@ function get_random_array($first, $last)
       return $randompattern;
   }
 
+   /*
+  *  t_get_random_array
+  * Вяртае перамяшаны масіў лікаў ад $ first +1 да $ last, памерам $size;
+  * 
+  */ 
 function t_get_random_array($first, $last, $size)
-  {//Возвращает перемешанный массив чисел от $first+1 до $last, размером $last-1;
-    
+  {    
     for ($i = $first; $i < $last+1; $i ++)
       {// Массив - источник чисел
          $source_array[] = $i;
@@ -157,13 +164,13 @@ function t_get_random_array($first, $last, $size)
   return $randompattern;
 
   }
-/*=============== конвертирование массива в формат JSON ===========================*/
+/*=============== канвертаванне масіва ў фармат JSON ===========================*/
 $json = json_encode($answers);
 setcookie ("answersarray", $json);
 $json = null;
 $json = json_encode($rpattern);
 $setfirststat = json_encode($results);
-/*================== работа с cookie =====================*/
+/*================== работа з cookie =====================*/
 $len = $quizlimit[0];
 setcookie ("ranswersattheend","");////удаляет данное значение куки
 setcookie ("ranswersattheend", $ranswersattheend[0]);//задаёт надо ли показывать правильные ответы в конце тестирования
@@ -171,10 +178,15 @@ setcookie ("showrightanswers","");////удаляет данное значени
 setcookie ("showrightanswers", $showrightanswers[0]);//задаёт надо ли показывать правильные ответы
 setcookie ("pattern","");////удаляет данное значение куки
 setcookie ("pattern", $json);//задаёт шаблон выборки вопросов
+setcookie ("staticPattern","");////удаляет данное значение куки
+setcookie ("staticPattern", $json);//задаёт шаблон выборки вопросов
 setcookie ("results","");////удаляет данное значение куки
 setcookie ("results", $setfirststat);//задаёт статистику прохождения теста
 setcookie ("maxresult","");////удаляет данное значение куки 
-setcookie ("maxresult", $quizlimit[0]);//задаёт количество вопросов в тесте
+
+setcookie ("perquiz","");////удаляет данное значение куки 
+setcookie ("perquiz", $quizlimit[0]);//задаёт количество вопросов в тесте
+
 setcookie ("currentqstn", "");//удаляет данное значение куки 
 setcookie ("currentqstn", $rpattern[$len-1]);//устанавливает первый вопрос для вывода студенту
 setcookie ("answeresnum", "");//удаляет данное значение куки 
@@ -235,6 +247,8 @@ echo $exec_time;*/
   
       $('#testfunctions').css("visibility","hidden");
       $('#typeofquestion').css("visibility","hidden");
+      
+      //
       var object = $.parseJSON(get_cookie("pattern"));
       var qnum = 0;
       $.each(object, function(key, value)
@@ -252,6 +266,11 @@ echo $exec_time;*/
           $('#typeofquestion').css("visibility","visible");
           $('#okbut').css("visibility","visible");
           $('#skipbut').css("visibility","visible");
+          
+          
+        
+      
+        //======================================
           var id = parseInt(get_cookie("currentqstn"));//получение номера вопроса
           var url = "respond.php?qstn-number=" + id; //формирование ссылки для ajax-запроса 
          
@@ -261,22 +280,22 @@ echo $exec_time;*/
     });
     /*================= Обработка кнопки "Ответить" =================*/
     $('#okbut').click(function(){
-      var id = parseInt(get_cookie("currentqstn"));//получаем текущий номер вопроса
-      var pid = parseInt(get_cookie("prevqstn"));//получаем предыдущий номер вопроса
-      set_cookie("answeresnum", id)
+      var id = parseInt( get_cookie("currentqstn") );//получаем текущий номер вопроса
+      var pid = parseInt( get_cookie("prevqstn") );//получаем предыдущий номер вопроса
+      
+      set_cookie("answeresnum", id);      
       var url = "respond.php?qstn-number=" + id;
-      var qweight = parseInt(get_cookie("weight_by_question"));
+      
+      var qweight = parseInt( get_cookie("weight_by_question") );
       var category = get_cookie("category");
       var showrightanswer = get_cookie("showrightanswers");
 
-      set_score( qweight, pid, category );
-      
+      set_score( qweight, pid, category );      
 
-      $.jmessage('Ваш ответ принят', '',2000, 'jm_message_success');
-       if(get_next_question_ok( id ))
-        {
-          if(showrightanswer == "true")
-            {
+      //$.jmessage('Ваш ответ принят', '',2000, 'jm_message_success');
+      
+       if(get_next_question_ok( id )) {
+          if(showrightanswer == "true") {
               //$('#res').html("Test text showrightanswer");
 
               _showrightanswer();
@@ -285,16 +304,13 @@ echo $exec_time;*/
               $('#nextbut').css("visibility","visible");
 
             }
-              else
-                {
-                  showanswer( url );
-                }
+              else  { showanswer( url ); }
           
         } 
       
       var object = $.parseJSON(get_cookie("pattern"));
       var qnum = 0;
-      $.each(object, function(key, value)
+      $.each(object, function( )
                   {//формирование массива содержащего порядок вопросов в текущем тесте
                        qnum++;
                   });
@@ -302,6 +318,7 @@ echo $exec_time;*/
       $('#remainquestion').html(qnum);
         
     });
+    
     /*================= Обработка кнопки "Пропустить" =================*/
     $('#skipbut').click(function(){
           var id = parseInt(get_cookie("currentqstn"));
@@ -321,10 +338,8 @@ echo $exec_time;*/
 
     });
 
- $('#hardfinish').click(function()
-    {
+ $('#hardfinish').click(function() {
         show_results();
-       
     });
   });
  

@@ -84,35 +84,35 @@ function vardump(obj) {//
     alert(out);
 }
 
-function showanswer(url)
-{
-  //alert(get_cookie("results"));
+function showanswer(url) {
   $.ajax(
                 {
                   url: url, 
                   cache: false,
-                  success: function(transport)
-                                    {
-                                      $.getJSON(url, function(json){//
-                                         var category = json.category;//Категория вопроса
-                                         var inputsize = json.inputsize;//Размер инпута
-                                         var qtype = json.qtype;//Тип вопроса
-                                         var questionbody = json.questionbody;//Тело вопроса
-                                         qbody = questionbody;
-                                         var answers = json.answers;//массив вопросов
-                                         qanswers = answers;
-                                         var showanswers = json.showanswers;//значение о том показывать ли правильные-неправильные ответы
-                                         var weight_by_question = json.weight;//вес ответа
-                                         var topic = json.topic;
-                                      
-                                         /*============== выделение памяти и задание начальных значений переменных ============*/
-                                         var singlestr="";
-                                         var multiplystr="";
-                                         var selectstr="";
-                                         var i=1;
-                                         var nid = 0;
-                                         var sortstr = "";
+                  success: function(transport) {
+                                          $.getJSON(url, function(json) {                                                 
+                                                 var category = json.category;//Категория вопроса
+                                                // var inputsize = json.inputsize;//Размер инпута
+                                                 var qtype = json.qtype;//Тип вопроса
+                                                 var questionbody = json.questionbody;//Тело вопроса
+                                                 qbody = questionbody;
+                                                 var answers = json.answers;//массив вопросов
+                                                 qanswers = answers;
+                                                 var showanswers = json.showanswers;//значение о том показывать ли правильные-неправильные ответы
+                                                 var weight_by_question = json.weight;//вес ответа
+                                                 var topic = json.topic;
+
+                                                 /*============== выделение памяти и задание начальных значений переменных ============*/
+                                                 var singlestr="";
+                                                 var multiplystr="";
+                                                // var selectstr="";
+                                                 var i=1;
+                                                 var nid = 0;
+                                                 var sortstr = "";
+
+                                         
                                          /*====================== запись значений в куки ======================*/
+                                         
                                          delete_cookie("weight_by_question");//очистим куки
                                          set_cookie("weight_by_question", weight_by_question); // запись в куки веса ответа
                                          delete_cookie("category");//очистим куки
@@ -127,10 +127,8 @@ function showanswer(url)
                                           $.each(answers, function( key, value )//просмотр вариантов ответов
                                             {
                                                //alert(value);
-                                               str = str+value+"|";
-                                              
-                                            });
-                                                                                    
+                                               str = str+value+"|";                                              
+                                            });                                                                                    
                                           fillquestionhtml="<div id='topicname'>"+topic+"</div><div id='res-category'>Тип вопроса: '"+qtype+"'</div><div id='res-title'>"+questionbody+"</div><div id='res-body'><form method='post' action='#' ><div id='text' showanswr='"+showanswers+"'><input id='fill' type='text' name='"+str+"'/></div></form></div>";
                                           $('#res').html(fillquestionhtml);
                                           $('#fill').click(function(){$.jmessage('Подсказка!', 'При вводе используйте то-то и то -то!', 3000, 'jm_message_warning');});
@@ -215,8 +213,7 @@ function showanswer(url)
                                               strres =str+strbody+strend;
                                               test[counter1]=strres;
                                                         k=k+1;
-                                                        counter1 = counter1+1;
-                                            
+                                                        counter1 = counter1+1;                                           
 
                                             });
                                               var resstr="";
@@ -230,8 +227,7 @@ function showanswer(url)
                                           }
                                           /*======================Вывод вопроса типа "Упорядочивание"============================*/
                                         if(category == "sort")
-                                          {
-                                           
+                                          {                                           
                                             var count = 0;
                                             $.each(answers, function( key, value )//просмотр вариантов ответов
                                             {
@@ -283,20 +279,22 @@ function set_score( qweight, id, category )
     delete_cookie( "answersarray" );
     set_cookie("answersarray", temp);
   /*========== освобождение памяти ========== */
-    answersarray  = null;
+    answersarray = null;
     temporary     = null;
-    object        = null;
+    object            = null;
   }
     function t_check_filled(qweight)
       {//проверка ответа на вопрос типа "Ввод значения"
         var myString = $("#fill").attr("name");//получение правильных ответов из атрибута тэга
         var myArray = myString.split("|");//разложение строки на массив ответов
-        /*========== обработка случая, когда ошиблись при составлении теста и добавили лишний(-е) символ(-ы) "|" ==========*/
+        
+           /*========== обработка случая, когда ошиблись при составлении теста и добавили лишний(-е) символ(-ы) "|" ==========*/
         for (var i = myArray.length - 1; i >= 0; i--)
           {//удаление пустых ответов, если такие случайно появились
             if(myArray[i]=="") myArray.splice(-1,1);
           };
-        if($("#fill").val().length>0)
+       
+           if($("#fill").val().length>0)
             {// проверка на наличие текста в инпуте
               var sum = 0;//начальное значение суммы баллов за ответ
               var my = new Array();//Не забыть доделать проверку для нескольких введёных слов
@@ -314,7 +312,8 @@ function set_score( qweight, id, category )
                       sum = sum+my[i];
                     }
                 };
-              if(sum>0){//если введено верное слово
+             
+                  if(sum>0){//если введено верное слово
                       $("#fill").attr("disabled","disabled");//убрать возможность рекдактировать строку
                       //$.jmessage('Верный ответ!', 'Вы набрали: '+qweight+'% за это задание Поздравляем, так держать!  ', 1000, 'jm_message_success'); 
                       set_sumscore(qweight)//добавить результат к общему по тесту
@@ -447,9 +446,12 @@ function closequiz()
   }
 function set_sumscore(qweight)
   {
-      var tmp = parseInt(get_cookie("sumscore"));
+     alert('qweight = '+qweight);
+     
+       var tmp = parseInt(get_cookie("sumscore"));
       tmp = tmp + qweight;
       set_cookie("sumscore", tmp);
+      alert('get_cookie("sumscore") = '+get_cookie("sumscore"));
       tmp = 0;
   }
 function get_next_question_ok(myid)
@@ -519,60 +521,69 @@ function get_next_question_ok(myid)
       }
     }
 
-    function get_next_question()
-    {
-      var myid = parseInt(get_cookie("currentqstn"));
-      
-      if(isNaN(myid) == true)
-          {closequiz();}
-          else
-            {
+    function get_next_question() {
+      var myid = parseInt(get_cookie("currentqstn"));      
+      if(isNaN(myid) == true) {    closequiz();  }
+          else {
               var obj = $.parseJSON(get_cookie("pattern"));
               var pattern = new Array();
-              var patternnew = new Array();
+             // var patternnew = new Array();
               $.each(obj, function(key, value)
                   {//формирование массива содержащего порядок вопросов в текущем тесте
                         pattern[key] = value;
                   });
-              for (var i = pattern.length - 1; i >= 0; i--)
-                {
-                  if((pattern[i] == myid)&&(myid == pattern[0]))
-                    {
-                      var next = pattern.length-1;
-                      break;
-                    }
-                      else
-                        {
-                          if(pattern[i] == myid)
-                            {
+              for (var i = pattern.length - 1; i >= 0; i--) {
+                     if((pattern[i] == myid)&&(myid == pattern[0])) {
+                             var next = pattern.length-1;
+                             break;
+                     }
+                      else {
+                          if(pattern[i] == myid) {
                               var next = i-1;
                               break;
                             }
-                        }
+                     }
                 };
-
-              delete_cookie( "prevqstn" );
-              set_cookie ( "prevqstn", myid );//устанавливает предыдущий номер вопроса
-
-              delete_cookie( "currentqstn" );
-              set_cookie ( "currentqstn", pattern[next] );//устанавливает следующий номер вопроса
+                
+       //устанавливает предыдущий номер вопроса  
+       delete_cookie( "prevqstn" );
+       set_cookie ( "prevqstn", myid );
+       
+       //устанавливает следующий номер вопроса
+       delete_cookie( "currentqstn" );
+       set_cookie ( "currentqstn", pattern[next] );
             }
      }
 
-  function show_results()
-      {/////////////////////////////
-        
-      $('#typeofquestion').css("visibility","hidden");
-        var studentresult = get_cookie("sumscore");
-        if(studentresult == null){studentresult = 0;}
-        var maxresult = parseInt(get_cookie("maxresult"));
-        var percents = studentresult*100/maxresult;
-        var myhtml = "<p><h1>Тестирование завершено!</h1></p><p><h3>Вы набрали: "+studentresult+" из "+maxresult+" возможных баллов<h3></p><p><h3>Данный результат составляет: "+Math.round(percents)+" %<h3></p>";
-        $('#res').html(myhtml);
-        $('#testfunctions').css("visibility", "hidden");
-      }
-  function set_right()
-    {
+function show_results( ) {
+       //get pattern
+        var pattern = get_cookie("staticPattern");
+        var url = 'calculate.php?pattern='+pattern;        
+        // паслаць get запыт, каб атрымаць агульную суму баллаў
+       $.ajax( {
+                url: url, 
+                cache: false,
+                success: function( ) {
+                                        $.getJSON(url, function(json) {
+                                                var maxresult = json;
+                                                 $('#typeofquestion').css("visibility","hidden");
+                                                 var studentresult = get_cookie("sumscore");
+                                                 if(studentresult == null){studentresult = 0;}
+                                                 var percents = studentresult*100/parseInt(maxresult);
+                                                 var myhtml = "<p><h1>Тестирование завершено!</h1></p>\n\
+                                                                         <p><h3>Вы набрали: "+studentresult+" из "+maxresult+" возможных баллов<h3></p>\n\
+                                                                         <p><h3>Данный результат составляет: "+Math.round(percents)+" %<h3></p>";
+                                                 $('#res').html(myhtml);
+                                                 $('#testfunctions').css("visibility", "hidden");
+                                        });
+                               }
+       });
+                 
+     
+}
+
+
+function set_right() {
       var qnum = get_cookie("prevqstn");
       //alert(qnum);
       var obj = $.parseJSON(get_cookie("results"));
@@ -583,27 +594,23 @@ function get_next_question_ok(myid)
                   });
 
               vardump(results);
-    }
+}
 
-    function _showrightanswer()
-      {//показывает правильные ответ
-          //var anid = parseInt(get_cookie("prevqstn"));//получаем предыдущий номер вопроса
-           $('#res').html("<h2>Ответ на вопрос:</h2> <br><span><div id='res-title'>" +qbody+ "</div>");
+function _showrightanswer()
+  {//показывает правильные ответ
+      //var anid = parseInt(get_cookie("prevqstn"));//получаем предыдущий номер вопроса
+       $('#res').html("<h2>Ответ на вопрос:</h2> <br><span><div id='res-title'>" +qbody+ "</div>");
+       /* $.each(qanswers, function( key, value )//просмотр вариантов ответов
+          {
 
-           
-           /* $.each(qanswers, function( key, value )//просмотр вариантов ответов
-              {
-                 
-                
-              });*/
-          vardump(qanswers);
+          });*/
+      vardump(qanswers);
+  }
+  
+  
+function showrightanswers()
+  {//показывает правильные ответы за все тестирование
 
+      $('#res').html("показывает правильные ответы за все тестирование");
 
-
-      }
-    function showrightanswers()
-      {//показывает правильные ответы за все тестирование
-
-          $('#res').html("показывает правильные ответы за все тестирование");
-
-      }
+  }

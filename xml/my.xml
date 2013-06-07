@@ -1,331 +1,96 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <quiz>
-  <language>RUS</language>
-  <discipline>математика</discipline>
-  <quiztitle>Тестирование. Барановичский Государственный Университет</quiztitle>
-  <subject>интегралы</subject>
-  <quizetype>
-    <type>Контрольное тестирование</type>
-    <timelimit>15</timelimit>
-    <quizlimit>10</quizlimit>
-    <showrightanswers>true</showrightanswers>
-    <showrightanswersattheend>true</showrightanswersattheend>
+  <language>BLR</language>
+  <discipline>Назва дысцыпліны</discipline>
+  <quiztitle>Теставанне. Баранавіцкі дзяржаўны універсітэт</quiztitle>
+  <subject>Тэма тэставання</subject>
+  <quizetype>Кантрольнае теставанне 
+    <timelimit>35</timelimit>
+    <quizlimit>5</quizlimit>
+    <showrightanswers>false</showrightanswers>
+    <showrightanswersattheend>false</showrightanswersattheend>
   </quizetype>
   <copyright>
     <date>
-      <day>21</day>
-      <month>05</month>
-      <year>2013</year>
+      <day>1</day>
+      <month>12</month>
+      <year>2012</year>
     </date>
     <quizauthor>
-      <degree>Преподаватель</degree>
-      <firstname>Андреев</firstname>
-      <surname>Андрей</surname>
-      <patronymic>Андреевич</patronymic>
+      <degree>преподаватель</degree>
+      <firstname>Иванов</firstname>
+      <surname>Иван</surname>
+      <patronymic>Иванович</patronymic>
     </quizauthor>
   </copyright>
-  <qtopic>
-    <name><![CDATA[Группа 1]]></name>
-    <questions>
-      <question>
-        <category>filled</category>
-        <qtype>Введите правильный ответ</qtype>
-        <weight>7</weight>
-        <questionbody><![CDATA[Введите группа]]></questionbody>
-        <answers>
-          <answer type="true">
-            <name><![CDATA[группа]]></name>
-          </answer>
-        </answers>
-      </question>
-    </questions>
-  </qtopic>
-  <qtopic>
-    <name><![CDATA[Тестирование]]></name>
-    <questions>
-      <question>
-        <category>filled</category>
-        <qtype>Введите правильный ответ</qtype>
-        <weight>7</weight>
-        <questionbody><![CDATA[Введите 1 или один или единица]]></questionbody>
-        <answers>
-          <answer type="true">
-            <name><![CDATA[1, один, единица]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>single</category>
-        <qtype>Выбор одного ответа</qtype>
-        <weight>6</weight>
-        <questionbody><![CDATA[Выберите вариант с true]]></questionbody>
-        <answers>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[true]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>multiply</category>
-        <qtype>Выбор нескольких ответов</qtype>
-        <weight>1</weight>
-        <questionbody><![CDATA[Выберите варианты с false]]></questionbody>
-        <answers>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[false]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[false]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[false]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[false]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[false]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>comparison</category>
-        <qtype>Сопоставление. Выберите соответствующее утверждению продолжение из списка</qtype>
-        <weight>6</weight>
-        <questionbody><![CDATA[Сопаставте цифры]]></questionbody>
-        <answers>
-          <answer result="1">
-            <name><![CDATA[1]]></name>
-          </answer>
-          <answer result="2">
-            <name><![CDATA[2]]></name>
-          </answer>
-          <answer result="3">
-            <name><![CDATA[3]]></name>
-          </answer>
-          <answer result="4">
-            <name><![CDATA[4]]></name>
-          </answer>
-          <answer result="5">
-            <name><![CDATA[5]]></name>
-          </answer>
-          <answer result="6">
-            <name><![CDATA[6]]></name>
-          </answer>
-          <answer result="7">
-            <name><![CDATA[7]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>sort</category>
-        <qtype>Сортировка. Упорядочить утверждения</qtype>
-        <weight>7</weight>
-        <questionbody><![CDATA[Вставить в поридке убывании]]></questionbody>
-        <answers>
-          <answer type="true" order="1">
-            <name><![CDATA[10]]></name>
-          </answer>
-          <answer type="true" order="2">
-            <name><![CDATA[9]]></name>
-          </answer>
-          <answer type="true" order="3">
-            <name><![CDATA[8]]></name>
-          </answer>
-          <answer type="true" order="4">
-            <name><![CDATA[7]]></name>
-          </answer>
-          <answer type="true" order="5">
-            <name><![CDATA[6]]></name>
-          </answer>
-          <answer type="true" order="6">
-            <name><![CDATA[5]]></name>
-          </answer>
-          <answer type="true" order="7">
-            <name><![CDATA[4]]></name>
-          </answer>
-          <answer type="true" order="8">
-            <name><![CDATA[3]]></name>
-          </answer>
-          <answer type="true" order="9">
-            <name><![CDATA[2]]></name>
-          </answer>
-          <answer type="true" order="10">
-            <name><![CDATA[1]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>filled</category>
-        <qtype>Введите правильный ответ</qtype>
-        <weight>10</weight>
-        <questionbody><![CDATA[Нужно вставать hello]]></questionbody>
-        <answers>
-          <answer type="true">
-            <name><![CDATA[hello]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>single</category>
-        <qtype>Выбор одного ответа</qtype>
-        <weight>6</weight>
-        <questionbody><![CDATA[Нужно выбрать вариант с false]]></questionbody>
-        <answers>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[false]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>multiply</category>
-        <qtype>Выбор нескольких ответов</qtype>
-        <weight>4</weight>
-        <questionbody><![CDATA[Выбрать нужно варианты с тру]]></questionbody>
-        <answers>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[тру]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[тру]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>sort</category>
-        <qtype>Сортировка. Упорядочить утверждения</qtype>
-        <weight>5</weight>
-        <questionbody><![CDATA[Поставте по возрастанию]]></questionbody>
-        <answers>
-          <answer type="true" order="1">
-            <name><![CDATA[1]]></name>
-          </answer>
-          <answer type="true" order="2">
-            <name><![CDATA[2]]></name>
-          </answer>
-          <answer type="true" order="3">
-            <name><![CDATA[3]]></name>
-          </answer>
-          <answer type="true" order="4">
-            <name><![CDATA[4]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>filled</category>
-        <qtype>Введите правильный ответ</qtype>
-        <weight>8</weight>
-        <questionbody><![CDATA[Нужно ввести пробка]]></questionbody>
-        <answers>
-          <answer type="true">
-            <name><![CDATA[Пробка, пробка]]></name>
-          </answer>
-        </answers>
-      </question>
-      <question>
-        <category>single</category>
-        <qtype>Выбор одного ответа</qtype>
-        <weight>7</weight>
-        <questionbody><![CDATA[Выбрать нужно с числом]]></questionbody>
-        <answers>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="true">
-            <name><![CDATA[3]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-          <answer type="false">
-            <name><![CDATA[Введите вариант ответа]]></name>
-          </answer>
-        </answers>
-      </question>
-    </questions>
-  </qtopic>
-</quiz>
+  <qtopic><name><![CDATA[Раздел 1. система физической культуры]]></name>
+      <questions> 
+          <question>
+              <category>single</category>
+              <qtype>Выбор одного ответа</qtype>
+              <weight>1</weight>
+              <title>Выберите правильный ответ:</title>
+              <questionbody><![CDATA[ 1 Часть общей культуры общества, <br>направленная <br>&permil;<br>на укрепление и повышение уровня здоровья, развитие физических и духовных способностей человека и эффективное использование их в жизнедеятельности &mdash; это:]]></questionbody>
+              <answers>
+                <answer type="false" ><name><![CDATA[оздоровительная физическая культура]]></name></answer>
+                <answer type="true"><name><![CDATA[физическая культура]]></name></answer>
+                <answer type="false"><name><![CDATA[физическое воспитание]]></name></answer>
+                <answer type="false"><name><![CDATA[спорт]]></name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>filled</category>
+              <inputsize>5</inputsize>
+              <qtype>Ввод значения</qtype>
+              <weight>5</weight>
+              <title>Введите правильный ответ:</title>
+              <questionbody> 2 Какое слово говорят, встречаясь?</questionbody>
+              <answers>  
+                <answer type="true"><name>hello|привет|ку</name></answer>
+              </answers>
+          </question>
+          <question>
+            <category>multiply</category>
+            <qtype>Выбор нескольких ответов</qtype>
+            <weight>8</weight>
+            <title>Выберите один правильный ответ:</title>
+            <questionbody> 3 Абярыце правільны адказ(можа быць некалькі правільных):</questionbody>
+              <answers>
+                <answer type="true"><name>Правильно1</name></answer>
+                <answer type="true"><name>Правильно2</name></answer>
+                <answer type="true"><name>Правильно3</name></answer>
+                <answer type="false"><name>Не Правильно1</name></answer>
+                <answer type="false"><name>Не Правильно2</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>comparison</category>
+              <qtype>Сопоставление</qtype>
+              <weight>5</weight>
+              <title>Выберите соответствующее утверждению продолжение из списка:</title>
+              <questionbody> 4 Выберите соответствующее утверждению продолжение из списка:</questionbody>
+              <answers>
+                <answer result="1+1=&amp;copy;" ><name><![CDATA[<br>2&copy;]]></name></answer>
+                <answer result="2+2=" ><name>4</name></answer>
+                <answer result="3+3=" ><name>6</name></answer>
+                <answer result="4+4=" ><name>8</name></answer>
+                <answer result="5+5=" ><name>10</name></answer>
+              </answers>
+          </question>
+          <question>
+              <category>sort</category>
+              <qtype>Сортировка</qtype>
+              <weight>10</weight>
+              <title>Упорядочите утверждения:</title>
+              <questionbody> 5 Упорядочите утверждения:</questionbody>
+              <answers>
+                <answer type="true" order="1" ><name>позиция 1</name></answer>
+                <answer type="true" order="2" ><name>позиция 2</name></answer>
+                <answer type="true" order="3" ><name>позиция 3</name></answer>
+                <answer type="true" order="4" ><name>позиция 4</name></answer>
+                <answer type="true" order="5" ><name>позиция 5</name></answer>
+              </answers>
+          </question>
+       </questions>
+  </qtopic>  
+  </quiz>

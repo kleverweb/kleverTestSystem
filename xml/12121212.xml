@@ -6,7 +6,7 @@
   <subject>Тэма тэставання</subject>
   <quizetype>Кантрольнае теставанне 
     <timelimit>35</timelimit>
-    <quizlimit>10</quizlimit>
+    <quizlimit>5</quizlimit>
     <showrightanswers>true</showrightanswers>
     <showrightanswersattheend>false</showrightanswersattheend>
   </quizetype>

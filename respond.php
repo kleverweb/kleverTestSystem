@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $var = $_GET['qstn-number'];
 
       $file = "xml/my.xml";
@@ -22,24 +22,17 @@ $var = $_GET['qstn-number'];
 
           foreach($showrightanswers as $q){$showrightanswers = $q;}
 
-                if((string)$category[0]=="comparison")
-                
-                {
-                  
-                    for ($i=0; $i <count($comparisonAnswers); $i++)
-                    { 
-
+                if((string)$category[0]=="comparison")  {                  
+                    for ($i=0; $i <count($comparisonAnswers); $i++) {
                         $temp ["$comparisonresult[$i]"] = "$comparisonAnswers[$i]";
                     }
 
                 $qArray = array(
-
                           'category'        => (string)$category[0],
-                          'topic'           => (string)$currenttopicname[0],
-                          'showanswers'     => (string)$showrightanswers[0],
-                          'weight'          => (string)$weight[0],
+                          'topic'              => (string)$currenttopicname[0],
+                          'showanswers' => (string)$showrightanswers[0],
+                          'weight'           => (string)$weight[0],
                           'qtype'           => (string)$qtype[0],
-                        //  'title'           => (string)$title[0],
                           'questionbody'    => (string)$questionbody[0],
                           'answers'         => $temp,
                         );
@@ -75,7 +68,6 @@ $var = $_GET['qstn-number'];
                                              $temp = explode("|", $str);
                                             }
                                       $qArray = array(
-
                                     'category'        => (string)$category[0],
                                     'topic'           => (string)$currenttopicname[0],
                                     'showanswers'     => (string)$showrightanswers[0],
@@ -112,7 +104,5 @@ $var = $_GET['qstn-number'];
                     }
 
 echo json_encode($qArray);
-                  /*$str = "hello|привет|ку";
-                  $answers = explode("|", $str);
-                  var_dump($answers);*/
+
 ?>
